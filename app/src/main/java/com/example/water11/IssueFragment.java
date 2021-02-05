@@ -57,7 +57,6 @@ public class IssueFragment extends Fragment {
         btTake=(Button)root.findViewById(R.id.take_photo);
         btIssue=(Button)root.findViewById(R.id.bt_issue);
 
-        content=etContent.getText().toString();
         id=(int)MySharedPreferences.getId(root.getContext());
         final User user= DataSupport.find(User.class,id);
 
@@ -73,6 +72,7 @@ public class IssueFragment extends Fragment {
         btIssue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                content=etContent.getText().toString();
                 if(content.length()==0){
                     Toast.makeText(root.getContext(), "内容不能为空", Toast.LENGTH_SHORT).show();
                 }else {

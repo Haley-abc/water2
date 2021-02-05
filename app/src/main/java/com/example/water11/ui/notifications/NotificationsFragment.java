@@ -97,11 +97,12 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
     }
 
     private void initArticles(){
-        for(int i=0;i<5;i++){
-            Article article1=new Article(R.drawable.head,"用户1","又是节约用水的一天！",R.drawable.kit);
-            articleList.add(article1);
-            Article article2=new Article(R.drawable.head,"用户1","又是节约用水的一天！",R.drawable.kit);
-            articleList.add(article2);
+        List<Article> allArticle = DataSupport.findAll(Article.class);
+        for(int i=0;i<allArticle.size();i++){
+            String name=allArticle.get(i).getName();
+            String content=allArticle.get(i).getContent();
+            Article article=new Article(R.drawable.head,name,content,R.drawable.kit);
+            articleList.add(article);
         }
     }
 
