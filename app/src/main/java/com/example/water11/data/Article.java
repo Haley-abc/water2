@@ -28,15 +28,15 @@ public class Article extends DataSupport {
     public int getUserPictureId() {
         return userPictureId;
     }
-    public void setUserPictureId(){this.userPictureId=userPictureId;}
+    public void setUserPictureId(int userPictureId){this.userPictureId=userPictureId;}
 
     public String getContent() {
         return content;
     }
-    public void setContent(){this.content=content;}
+    public void setContent(String content){this.content=content;}
 
     public String getName() {
         return name;
     }
-    public void setName(){this.name=name;}
+    public void setName(String name){this.name=name;}
 }
