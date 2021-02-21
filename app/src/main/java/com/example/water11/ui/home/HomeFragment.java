@@ -13,8 +13,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.water11.R;
+import com.example.water11.data.Article;
 import com.example.water11.ui.home.individual.IndividualFragment;
 import com.example.water11.ui.home.task.TaskFragment;
+
+import org.litepal.crud.DataSupport;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
