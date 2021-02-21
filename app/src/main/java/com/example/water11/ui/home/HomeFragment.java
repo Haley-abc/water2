@@ -13,8 +13,11 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.water11.R;
+import com.example.water11.data.Article;
 import com.example.water11.ui.home.individual.IndividualFragment;
 import com.example.water11.ui.home.task.TaskFragment;
+
+import org.litepal.crud.DataSupport;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
@@ -57,6 +60,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 replaceFragment(new TaskFragment());
                 btCurrent.setBackgroundColor(Color.rgb(50,131,160));
                 btTask.setBackgroundColor(Color.WHITE);
+                DataSupport.delete(Article.class, 5);
                 break;
             default:
                 break;

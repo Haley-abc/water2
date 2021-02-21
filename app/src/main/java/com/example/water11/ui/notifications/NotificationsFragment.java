@@ -1,5 +1,6 @@
 package com.example.water11.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.water11.FriendActivity;
 import com.example.water11.IssueFragment;
 import com.example.water11.MainActivity;
 import com.example.water11.R;
@@ -22,7 +24,6 @@ import com.example.water11.data.Article;
 import com.example.water11.data.ArticleAdapter;
 import com.example.water11.data.SpaceSocialList;
 import com.example.water11.data.User;
-import com.example.water11.ui.home.task.TaskFragment;
 
 import org.litepal.crud.DataSupport;
 
@@ -35,7 +36,7 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 
     private View root;
     private MainActivity activity;
-    private Button btSign,btIssue;
+    private Button btSign,btIssue,btUser;
     private TextView tvDays;
     private int id,space=0;
     private User user;
@@ -64,8 +65,10 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
 
         btSign=root.findViewById(R.id.bt_sign);//签到按钮
         btSign.setOnClickListener(this);
-        btIssue=root.findViewById(R.id.bt_issue);
+        btIssue=root.findViewById(R.id.bt_issue);//发表动态按钮
         btIssue.setOnClickListener(this);
+        btUser=root.findViewById(R.id.bt_user);//好友按钮
+        btUser.setOnClickListener(this);
 
         tvDays=root.findViewById(R.id.tv_days);//签到天数TextView
         tvDays.setText(user.getDays()+"");
@@ -91,6 +94,10 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
             case R.id.bt_issue:
                 replaceFragment(new IssueFragment());
                 break;
+            case R.id.bt_user:
+                Intent intent=new Intent(getActivity(), FriendActivity.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }
@@ -101,7 +108,7 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
         for(int i=0;i<allArticle.size();i++){
             String name=allArticle.get(i).getName();
             String content=allArticle.get(i).getContent();
-            Article article=new Article(R.drawable.head,name,content,R.drawable.kit);
+            Article article=new Article(R.drawable.head,name,content,R.drawable.head);
             articleList.add(article);
         }
     }
