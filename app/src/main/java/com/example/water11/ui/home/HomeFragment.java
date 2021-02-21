@@ -60,7 +60,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 replaceFragment(new TaskFragment());
                 btCurrent.setBackgroundColor(Color.rgb(50,131,160));
                 btTask.setBackgroundColor(Color.WHITE);
-                DataSupport.delete(Article.class, 5);
                 break;
             default:
                 break;
