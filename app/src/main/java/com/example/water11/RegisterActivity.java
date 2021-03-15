@@ -74,7 +74,14 @@ public class RegisterActivity extends AppCompatActivity {
                             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
                             Date date = new Date(System.currentTimeMillis());
                             String day=formatter.format(date);
-
+                            /*
+                            game.setWaterQuantity(0);
+                            game.setKitNum(0);
+                            game.setPolutionNum(0);
+                            game.setFishNum(0);
+                            game.setCoinNum(0);
+                            game.setDays(0);
+                            game.setDate("0-0-0");*/
 
                             User user = new User();
                             user.setLevel(0);
