@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.water11.data.Bag;
 import com.example.water11.data.Everyday;
+import com.example.water11.data.Game;
 import com.example.water11.data.Reservoir;
 import com.example.water11.data.User;
 
@@ -67,15 +68,13 @@ public class RegisterActivity extends AppCompatActivity {
                     List<User> users = DataSupport.where("account=?", account).find(User.class);
                     if(users.size()==0){
                         if (password.equals(password2)) {
-                            Everyday everyday=new Everyday();
+                            Game game=new Game();
+                            game.save();
+
                             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
                             Date date = new Date(System.currentTimeMillis());
                             String day=formatter.format(date);
 
-                            everyday.setWaterSaving(0);
-                            everyday.setSignIn(0);
-                            everyday.setDate(day);
-                            everyday.save();
 
                             User user = new User();
                             user.setLevel(0);
@@ -91,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.setNickName(nickName);
                             user.setPassword(password);
                             user.setAccount(account);
-                            user.getEverydays().add(everyday);
+                            user.setGame(game);
                             user.save();
                             if(user.save()) {
                                 showDialog();

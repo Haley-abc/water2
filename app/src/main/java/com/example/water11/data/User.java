@@ -22,6 +22,15 @@ public class User extends DataSupport {
     private int polutionNum;//污染物个数
     private int fishNum;//鱼个数
     private int kitNum;//工具箱个数
+    private Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public int getKitNum() {
         return kitNum;
