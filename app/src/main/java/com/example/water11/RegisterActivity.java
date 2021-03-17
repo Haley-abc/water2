@@ -17,6 +17,7 @@ import com.example.water11.data.Everyday;
 import com.example.water11.data.Game;
 import com.example.water11.data.Reservoir;
 import com.example.water11.data.User;
+import com.example.water11.tool.BaseActivity;
 
 import org.litepal.crud.DataSupport;
 import org.litepal.util.Const;
@@ -25,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
 
     private EditText etAccountRegister;//账号EditText
     private EditText etPasswordRegister;//密码EditText

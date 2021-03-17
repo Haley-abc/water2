@@ -12,13 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.water11.data.User;
+import com.example.water11.tool.ActivityCollector;
+import com.example.water11.tool.BaseActivity;
 
 import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
 import java.util.List;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private EditText etAccount;
     private EditText etPassword;
     String account;
@@ -35,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
         /*
         得到本地的上次登录的账号密码，并登录，直接跳转MainActivity
-         */
+
         id=(int)MySharedPreferences.getId(LoginActivity.this);
         account=(String)MySharedPreferences.getName(LoginActivity.this);
         if(account!=null&&account.length()!=0){
@@ -43,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             intent.putExtra("id",id);
             startActivity(intent);
         }
-
+*/
         Button btLogin=(Button)findViewById(R.id.bt_login);
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,5 +113,12 @@ public class LoginActivity extends AppCompatActivity {
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }//去掉默认菜单栏
+    }
+
+    //点击返回销毁所有活动
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ActivityCollector.finishAll();
     }
 }
