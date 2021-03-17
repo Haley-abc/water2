@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.water11.BagActivity;
 import com.example.water11.MainActivity;
+import com.example.water11.MySharedPreferences;
 import com.example.water11.R;
 import com.example.water11.ShopActivity;
 import com.example.water11.data.Game;
@@ -26,7 +27,6 @@ import java.util.List;
 public class ReservoirFragment extends Fragment {
 
     private View root;
-    private MainActivity activity;
     private TextView tvLevel;
     private User user;
     private int id;
@@ -40,8 +40,7 @@ public class ReservoirFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.reservoir_fragment, container, false);
 
-        activity=(MainActivity)getActivity();
-        id=activity.getId();
+        id=(int) MySharedPreferences.getId(getActivity());
         user= DataSupport.find(User.class,id,true);
         Game game=user.getGame();
         int water=game.getWaterQuantity();

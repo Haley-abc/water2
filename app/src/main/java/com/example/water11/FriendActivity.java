@@ -1,10 +1,10 @@
 package com.example.water11;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class FriendActivity extends AppCompatActivity {
+import com.example.water11.tool.BaseActivity;
+
+public class FriendActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

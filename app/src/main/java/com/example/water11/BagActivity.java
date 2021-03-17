@@ -13,13 +13,14 @@ import android.widget.TextView;
 
 import com.example.water11.data.Bag;
 import com.example.water11.data.User;
+import com.example.water11.tool.BaseActivity;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BagActivity extends AppCompatActivity {
+public class BagActivity extends BaseActivity {
     private int id;
     private ListView mListView;
     private List<Bag> bags;
