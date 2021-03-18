@@ -1,61 +1,76 @@
 package com.example.water11;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.water11.data.Game;
+import com.example.water11.data.User;
+import com.example.water11.data.shop.Commodity;
+import com.example.water11.data.shop.CommodityAdapter;
 import com.example.water11.tool.BaseActivity;
-import com.example.water11.ui.dashboard.advanced.AdvancedFragment;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopActivity extends BaseActivity {
-    private ListView mListView;
-    private  String[] names={"商品1","商品2","商品3","商品4","商品5","商品6","商品7","商品8","商品9","商品10","商品11","商品12","商品13","商品14"};
-    private int[] icons={R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2,R.drawable.head2};
-
+    private List<Commodity> commodityList=new ArrayList<Commodity>();
+    private int id;
+    private TextView tvCoinNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
-        mListView=findViewById(R.id.shop_list);
-        mListView.setAdapter(new ShopActivity.MyBaseAdapter());
+
+        //商品列表
+        initCommodity();
+        RecyclerView shopRecyclerView=(RecyclerView)findViewById(R.id.shop_list);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(ShopActivity.this);
+        shopRecyclerView.setLayoutManager(layoutManager);
+        CommodityAdapter adapter=new CommodityAdapter(commodityList);
+        shopRecyclerView.setAdapter(adapter);
+
+        id=(int) MySharedPreferences.getId(this);
+        User user= DataSupport.find(User.class,id,true);
+        Game game=user.getGame();
+        int coinNum=game.getCoinNum();
+
+        tvCoinNum=(TextView)findViewById(R.id.tv_coin_num);
+        tvCoinNum.setText(Integer.toString(coinNum));//显示金币数
+
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }//去掉默认菜单栏
     }
-    class MyBaseAdapter extends BaseAdapter {
 
-        @Override
-        public int getCount() {
-            return names.length;
+    public void initCommodity(){
+        for(int i=0;i<20;i++){
+            Commodity commodity1=new Commodity("商品",20.0,R.drawable.head2);
+            commodityList.add(commodity1);
+            Commodity commodity2=new Commodity("商品",50.0,R.drawable.head2);
+            commodityList.add(commodity2);
         }
+    }
 
-        @Override
-        public Object getItem(int position) {
-            return names [position];
-        }
+    public void insufficientGoldCoins(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("提示");
+        builder.setMessage("金币不足！");
+        builder.setPositiveButton("好的",
+                new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {//组装数据
-            View view=View.inflate(ShopActivity.this,R.layout.list_shop,null);//在list_item中有两个id,现在要把他们拿过来
-            TextView mTextView=(TextView) view.findViewById(R.id.tv_list);
-            ImageView imageView=(ImageView)view.findViewById(R.id.image);
-            //组件一拿到，开始组装
-            mTextView.setText(names[position]);
-            imageView.setBackgroundResource(icons[position]);
-            //组装玩开始返回
-            return view;
-        }
+                    }
+                });
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }

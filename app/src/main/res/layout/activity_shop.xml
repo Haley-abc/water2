@@ -13,7 +13,22 @@
         android:layout_height="50dp"
         android:textSize="30dp"
         android:background="#6ABBD9"/>
-    <ListView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/coin"/>
+        <TextView
+            android:id="@+id/tv_coin_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="233"
+            android:textSize="27sp"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shop_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
