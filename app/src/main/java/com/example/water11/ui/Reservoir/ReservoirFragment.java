@@ -49,6 +49,7 @@ public class ReservoirFragment extends Fragment {
 
         final Button btShop=root.findViewById(R.id.bt_shop);
         final Button btBag=root.findViewById(R.id.bt_bag);
+        final Button btQuestion=root.findViewById(R.id.bt_question);
         btShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +62,13 @@ public class ReservoirFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), BagActivity.class);
                 intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
+        btQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), QuestionActivity.class);
                 startActivity(intent);
             }
         });
@@ -86,34 +94,5 @@ class WaterNum{
             level=6;
         }
         return level;
-    }
-}
-class AnswerQuestions{
-    public static String[] getQuestion(){
-        String[] question=new String[6];
-        List<Questions> questionList = DataSupport.findAll(Questions.class);
-        int num=questionList.size();
-        Random random=new Random();
-        int questionIndex=random.nextInt(num);
-
-        question[0]=questionList.get(questionIndex).getTopic();
-        question[5]=questionList.get(questionIndex).getAnswer();
-
-        Set<Integer> set = new HashSet<Integer>();
-        int[] indexs=new int[4];
-        for(int i=0;i<4;i++){
-            int index=random.nextInt(4);
-            while(set.contains(index)){
-                index=random.nextInt(4);
-            }
-            set.add(index);
-            indexs[i]=index;
-        }
-        question[indexs[0]]=questionList.get(questionIndex).getOption1();
-        question[indexs[1]]=questionList.get(questionIndex).getOption2();
-        question[indexs[2]]=questionList.get(questionIndex).getOption3();
-        question[indexs[3]]=questionList.get(questionIndex).getOption4();
-
-        return question;
     }
 }

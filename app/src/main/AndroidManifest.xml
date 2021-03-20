@@ -23,20 +23,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.notifications.FriendActivity"></activity>
+        <activity android:name=".ui.Reservoir.QuestionActivity"></activity>
+        <activity android:name=".ui.notifications.FriendActivity" />
         <activity android:name=".ui.Reservoir.BagActivity" />
         <activity android:name=".ui.Reservoir.ShopActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.water11.R;
+import com.example.water11.data.reservoir.Questions;
 import com.example.water11.ui.home.individual.IndividualFragment;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
@@ -57,7 +58,24 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.bt_task://我的任务按钮
                 /*replaceFragment(new TaskFragment());
                 btCurrent.setBackgroundColor(Color.rgb(50,131,160));
-                btTask.setBackgroundColor(Color.WHITE);*/
+                btTask.setBackgroundColor(Color.WHITE);
+
+                Questions questions1=new Questions();
+                questions1.setTopic("我国将每年的（）定为中国水周。");
+                questions1.setAnswer("3月22-28日");
+                questions1.setOption1("3月22-28日");
+                questions1.setOption2("4月22-28日");
+                questions1.setOption3("5月22-28日");
+                questions1.setOption4("7月22-28日");
+                questions1.save();
+                Questions questions2=new Questions();
+                questions2.setTopic("人类可利用的淡水资源主要是指某地区逐年可恢复和（）的淡水资源。");
+                questions2.setAnswer("更新");
+                questions2.setOption1("更新");
+                questions2.setOption2("开采");
+                questions2.setOption3("储存");
+                questions2.setOption4("消耗");
+                questions2.save();*/
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intent);
