@@ -1,6 +1,8 @@
 package com.example.water11.data.reservoir;
 
-public class Questions {
+import org.litepal.crud.DataSupport;
+
+public class Questions extends DataSupport {
     private String topic;//题目
     private String option1;//选项一
     private String option2;//选项一
