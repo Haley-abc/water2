@@ -1,4 +1,4 @@
-package com.example.water11;
+package com.example.water11.ui.Reservoir;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.water11.data.Game;
+import com.example.water11.tool.MySharedPreferences;
+import com.example.water11.R;
+import com.example.water11.data.reservoir.Game;
 import com.example.water11.data.User;
 import com.example.water11.data.shop.Commodity;
 import com.example.water11.data.shop.CommodityAdapter;

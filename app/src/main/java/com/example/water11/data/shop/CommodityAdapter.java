@@ -6,16 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.water11.MySharedPreferences;
+import com.example.water11.tool.MySharedPreferences;
 import com.example.water11.R;
-import com.example.water11.ShopActivity;
-import com.example.water11.data.Game;
+import com.example.water11.data.reservoir.Game;
 import com.example.water11.data.User;
 
 import org.litepal.crud.DataSupport;

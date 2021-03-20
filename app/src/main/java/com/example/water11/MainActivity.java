@@ -2,20 +2,18 @@ package com.example.water11;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.water11.data.User;
 import com.example.water11.tool.ActivityCollector;
 import com.example.water11.tool.BaseActivity;
+import com.example.water11.tool.MySharedPreferences;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -37,7 +35,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         //查看是否有本地扥估记录
-        id=(int)MySharedPreferences.getId(MainActivity.this);
+        id=(int) MySharedPreferences.getId(MainActivity.this);
         account=(String)MySharedPreferences.getName(MainActivity.this);
         if(account==null||account.length()==0){
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);

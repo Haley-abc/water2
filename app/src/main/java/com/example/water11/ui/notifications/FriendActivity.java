@@ -1,7 +1,8 @@
-package com.example.water11;
+package com.example.water11.ui.notifications;
 
 import android.os.Bundle;
 
+import com.example.water11.R;
 import com.example.water11.tool.BaseActivity;
 
 public class FriendActivity extends BaseActivity {

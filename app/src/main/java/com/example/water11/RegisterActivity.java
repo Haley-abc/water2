@@ -1,10 +1,9 @@
 package com.example.water11;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,15 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.water11.data.Bag;
-import com.example.water11.data.Everyday;
-import com.example.water11.data.Game;
-import com.example.water11.data.Reservoir;
+import com.example.water11.data.reservoir.Game;
 import com.example.water11.data.User;
 import com.example.water11.tool.BaseActivity;
 
 import org.litepal.crud.DataSupport;
-import org.litepal.util.Const;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -123,7 +118,8 @@ public class RegisterActivity extends BaseActivity {
                 new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Intent intent=new Intent(RegisterActivity.this,LoginActivity.class);
+                        startActivity(intent);
                     }
                 });
         AlertDialog dialog=builder.create();

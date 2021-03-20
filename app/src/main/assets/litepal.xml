@@ -7,7 +7,7 @@
         <mapping class="com.example.water11.data.Everyday"></mapping>
         <mapping class="com.example.water11.data.Bag"></mapping>
         <mapping class="com.example.water11.data.Reservoir"></mapping>
-        <mapping class="com.example.water11.data.Article"></mapping>
-        <mapping class="com.example.water11.data.Game"></mapping>
+        <mapping class="com.example.water11.data.social.Article"></mapping>
+        <mapping class="com.example.water11.data.reservoir.Game"></mapping>
     </list>
 </litepal>

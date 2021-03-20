@@ -1,6 +1,5 @@
 package com.example.water11.ui.Reservoir;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -11,18 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.water11.BagActivity;
-import com.example.water11.MainActivity;
-import com.example.water11.MySharedPreferences;
+import com.example.water11.tool.MySharedPreferences;
 import com.example.water11.R;
-import com.example.water11.ShopActivity;
-import com.example.water11.data.Game;
+import com.example.water11.data.reservoir.Game;
+import com.example.water11.data.reservoir.Questions;
 import com.example.water11.data.User;
 import org.litepal.crud.DataSupport;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class ReservoirFragment extends Fragment {
 
@@ -89,4 +88,32 @@ class WaterNum{
         return level;
     }
 }
+class AnswerQuestions{
+    public static String[] getQuestion(){
+        String[] question=new String[6];
+        List<Questions> questionList = DataSupport.findAll(Questions.class);
+        int num=questionList.size();
+        Random random=new Random();
+        int questionIndex=random.nextInt(num);
 
+        question[0]=questionList.get(questionIndex).getTopic();
+        question[5]=questionList.get(questionIndex).getAnswer();
+
+        Set<Integer> set = new HashSet<Integer>();
+        int[] indexs=new int[4];
+        for(int i=0;i<4;i++){
+            int index=random.nextInt(4);
+            while(set.contains(index)){
+                index=random.nextInt(4);
+            }
+            set.add(index);
+            indexs[i]=index;
+        }
+        question[indexs[0]]=questionList.get(questionIndex).getOption1();
+        question[indexs[1]]=questionList.get(questionIndex).getOption2();
+        question[indexs[2]]=questionList.get(questionIndex).getOption3();
+        question[indexs[3]]=questionList.get(questionIndex).getOption4();
+
+        return question;
+    }
+}

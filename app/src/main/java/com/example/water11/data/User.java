@@ -1,6 +1,7 @@
 package com.example.water11.data;
 
-import org.litepal.annotation.Column;
+import com.example.water11.data.reservoir.Game;
+
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;

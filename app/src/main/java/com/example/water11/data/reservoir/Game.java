@@ -1,4 +1,6 @@
-package com.example.water11.data;
+package com.example.water11.data.reservoir;
+
+import com.example.water11.data.User;
 
 import org.litepal.crud.DataSupport;
 

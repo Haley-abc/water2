@@ -23,9 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FriendActivity"></activity>
-        <activity android:name=".BagActivity" />
-        <activity android:name=".ShopActivity" />
+        <activity android:name=".ui.notifications.FriendActivity"></activity>
+        <activity android:name=".ui.Reservoir.BagActivity" />
+        <activity android:name=".ui.Reservoir.ShopActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity"/>
         <activity

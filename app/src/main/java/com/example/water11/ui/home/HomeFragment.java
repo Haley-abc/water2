@@ -1,6 +1,8 @@
 package com.example.water11.ui.home;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.water11.R;
-import com.example.water11.data.Article;
 import com.example.water11.ui.home.individual.IndividualFragment;
-import com.example.water11.ui.home.task.TaskFragment;
-
-import org.litepal.crud.DataSupport;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
@@ -57,9 +55,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 btTask.setBackgroundColor(Color.rgb(50,131,160));
                 break;
             case R.id.bt_task://我的任务按钮
-                replaceFragment(new TaskFragment());
+                /*replaceFragment(new TaskFragment());
                 btCurrent.setBackgroundColor(Color.rgb(50,131,160));
-                btTask.setBackgroundColor(Color.WHITE);
+                btTask.setBackgroundColor(Color.WHITE);*/
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intent);
                 break;
             default:
                 break;
