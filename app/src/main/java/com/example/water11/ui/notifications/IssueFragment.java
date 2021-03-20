@@ -1,24 +1,13 @@
-package com.example.water11;
+package com.example.water11.ui.notifications;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.content.ContentUris;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,12 +17,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.water11.data.Article;
+import com.example.water11.tool.MySharedPreferences;
+import com.example.water11.R;
+import com.example.water11.data.social.Article;
 import com.example.water11.data.User;
 
 import org.litepal.crud.DataSupport;
-
-import static android.app.Activity.RESULT_OK;
 
 public class IssueFragment extends Fragment {
 
@@ -57,7 +46,7 @@ public class IssueFragment extends Fragment {
         btTake=(Button)root.findViewById(R.id.take_photo);
         btIssue=(Button)root.findViewById(R.id.bt_issue);
 
-        id=(int)MySharedPreferences.getId(root.getContext());
+        id=(int) MySharedPreferences.getId(root.getContext());
         final User user= DataSupport.find(User.class,id);
 
         btTake.setOnClickListener(new View.OnClickListener() {

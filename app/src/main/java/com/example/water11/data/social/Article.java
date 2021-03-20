@@ -1,4 +1,4 @@
-package com.example.water11.data;
+package com.example.water11.data.social;
 
 import org.litepal.crud.DataSupport;
 

@@ -1,4 +1,4 @@
-package com.example.water11.data;
+package com.example.water11.data.social;
 
 import android.view.LayoutInflater;
 import android.view.View;

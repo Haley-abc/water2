@@ -1,11 +1,8 @@
 package com.example.water11;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,9 +11,9 @@ import android.widget.Toast;
 import com.example.water11.data.User;
 import com.example.water11.tool.ActivityCollector;
 import com.example.water11.tool.BaseActivity;
+import com.example.water11.tool.MySharedPreferences;
 
 import org.litepal.crud.DataSupport;
-import org.litepal.tablemanager.Connector;
 
 import java.util.List;
 
@@ -63,7 +60,7 @@ public class LoginActivity extends BaseActivity {
                                 本地保存登录信息
                                  */
                                 id=user.getId();
-                                Boolean bool=MySharedPreferences.setName(user.getAccount(),LoginActivity.this);//判断是否保存成功
+                                Boolean bool= MySharedPreferences.setName(user.getAccount(),LoginActivity.this);//判断是否保存成功
                                 MySharedPreferences.setPswd(user.getPassword(),LoginActivity.this);
                                 MySharedPreferences.setId(user.getId(),LoginActivity.this);
 
