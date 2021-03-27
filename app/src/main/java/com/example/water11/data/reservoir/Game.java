@@ -14,6 +14,8 @@ public class Game extends DataSupport {
         private int polutionNum;//污染物数量
         private int days;//累计签到日期
         private String date;//上次签到日期
+        private String answerDate;//上次答题日期
+
 
     public Game(){
         waterQuantity=0;
@@ -23,6 +25,15 @@ public class Game extends DataSupport {
         polutionNum=0;
         days=0;
         date="0000-00-00";
+        answerDate="0000-00-00";
+    }
+
+    public String getAnswerDate() {
+        return answerDate;
+    }
+
+    public void setAnswerDate(String answerDate) {
+        this.answerDate = answerDate;
     }
 
     public User getUser() {

@@ -41,6 +41,7 @@ public class IssueFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         root=inflater.inflate(R.layout.fragment_issue, container, false);
+
         picture=(ImageView)root.findViewById(R.id.iv_picture);
         etContent=(EditText)root.findViewById(R.id.et_content);
         btTake=(Button)root.findViewById(R.id.take_photo);
@@ -65,13 +66,14 @@ public class IssueFragment extends Fragment {
                 if(content.length()==0){
                     Toast.makeText(root.getContext(), "内容不能为空", Toast.LENGTH_SHORT).show();
                 }else {
+                    String nickName=user.getNickName();
                     Article article = new Article();
                     article.setContent(content);
-                    article.setName(user.getNickName());
+                    article.setName(nickName);
                     article.setUserHeadId(1);
                     article.setUserPictureId(1);
                     article.save();
-                    if (user.save()) {
+                    if (article.save()) {
                         Toast.makeText(root.getContext(), "发表成功", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(root.getContext(), "发表失败", Toast.LENGTH_SHORT).show();
