@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.water11.tool.MySharedPreferences;
 import com.example.water11.R;
@@ -18,6 +19,8 @@ import com.example.water11.data.reservoir.Questions;
 import com.example.water11.data.User;
 import org.litepal.crud.DataSupport;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -29,6 +32,7 @@ public class ReservoirFragment extends Fragment {
     private TextView tvLevel;
     private User user;
     private int id;
+    private Game game;
 
     public static ReservoirFragment newInstance() {
         return new ReservoirFragment();
@@ -36,12 +40,12 @@ public class ReservoirFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable final Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.reservoir_fragment, container, false);
 
         id=(int) MySharedPreferences.getId(getActivity());
         user= DataSupport.find(User.class,id,true);
-        Game game=user.getGame();
+        game=user.getGame();
         int water=game.getWaterQuantity();
 
         tvLevel=root.findViewById(R.id.tv_level);
@@ -68,12 +72,26 @@ public class ReservoirFragment extends Fragment {
         btQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), QuestionActivity.class);
-                startActivity(intent);
+                SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+                Date date = new Date(System.currentTimeMillis());
+                String day=formatter.format(date);
+                String answerDate=game.getAnswerDate();
+                if(day.equals(answerDate)){
+                    Toast.makeText(getActivity(),"今日答题已完成", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent=new Intent(getActivity(), QuestionActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
         return root;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        game=user.getGame();
     }
 }
 
