@@ -2,6 +2,7 @@ package com.example.water11.ui.Service.activity;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.water11.R;
 
 public class ActivityFragment extends Fragment {
 
     private ActivityViewModel mViewModel;
+    private View root;
+    private Button btOnline;
 
     public static ActivityFragment newInstance() {
         return new ActivityFragment();
@@ -25,7 +29,18 @@ public class ActivityFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_fragment, container, false);
+        root=inflater.inflate(R.layout.activity_fragment, container, false);
+
+        btOnline=root.findViewById(R.id.bt_online);
+        btOnline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), OnlineActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return root;
     }
 
     @Override
