@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Reservoir.QuestionActivity"></activity>
+        <activity android:name=".ui.Service.activity.WebActivity"></activity>
+        <activity android:name=".ui.Service.activity.OnlineActivity" />
+        <activity android:name=".ui.Reservoir.QuestionActivity" />
         <activity android:name=".ui.notifications.FriendActivity" />
         <activity android:name=".ui.Reservoir.BagActivity" />
         <activity android:name=".ui.Reservoir.ShopActivity" />
