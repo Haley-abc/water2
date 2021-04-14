@@ -4,10 +4,21 @@ public class Commodity {
     private String name;
     private double price;
     private int imageId;
-    public Commodity(String name,double price,int imageId){
+    private String des;
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
+    }
+
+    public Commodity(String name, double price, int imageId,String des){
         this.name=name;
         this.price=price;
         this.imageId=imageId;
+        this.des=des;
     }
 
     public int getImageId() {

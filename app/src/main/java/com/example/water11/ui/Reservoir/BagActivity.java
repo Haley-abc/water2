@@ -1,17 +1,19 @@
 package com.example.water11.ui.Reservoir;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.water11.R;
-import com.example.water11.data.Bag;
+import com.example.water11.data.User;
+import com.example.water11.data.reservoir.Bag;
+import com.example.water11.data.shop.Commodity;
+import com.example.water11.data.shop.CommodityAdapter;
+import com.example.water11.data.shop.Goods;
+import com.example.water11.data.shop.GoodsAdapter;
 import com.example.water11.tool.BaseActivity;
+import com.example.water11.tool.MySharedPreferences;
 
 import org.litepal.crud.DataSupport;
 
@@ -19,58 +21,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BagActivity extends BaseActivity {
+
+    private List<Goods> goodsList=new ArrayList<Goods>();
     private int id;
-    private ListView mListView;
-    private List<Bag> bags;
-    private List<String> names=new ArrayList<String>();
-    private List<Integer> pictures=new ArrayList<Integer>();
-    private int[] icons={R.drawable.kit};
+    private User user;
+    private Bag bag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bag);
 
-        Intent intent=getIntent();
-        id=intent.getIntExtra("id",0);
-        bags=DataSupport.select("name","picture").where("user_id=?",id+"").find(Bag.class);
-        for(Bag ele:bags){
-            names.add(ele.getName());
-            pictures.add(ele.getPicture());
-        }
-        mListView=findViewById(R.id.bag_list);
-        mListView.setAdapter(new BagActivity.MyBaseAdapter());
+        id=(int) MySharedPreferences.getId(this);
+        user= DataSupport.find(User.class,id,true);
+
+        bag=user.getBag();
+
+        initGoods();
+        RecyclerView bagRecyclerView=(RecyclerView)findViewById(R.id.bag_list);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(BagActivity.this);
+        bagRecyclerView.setLayoutManager(layoutManager);
+        GoodsAdapter adapter=new GoodsAdapter(goodsList);
+        bagRecyclerView.setAdapter(adapter);
+
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }//去掉默认菜单栏
     }
-    class MyBaseAdapter extends BaseAdapter {
 
-        @Override
-        public int getCount() {
-            return names.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return names.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {//组装数据
-            View view=View.inflate(BagActivity.this,R.layout.list_bag,null);//在list_item中有两个id,现在要把他们拿过来
-            TextView mTextView=(TextView) view.findViewById(R.id.tv_list);
-            ImageView imageView=(ImageView)view.findViewById(R.id.image);
-            //组件一拿到，开始组装
-            mTextView.setText(names.get(position));
-            imageView.setBackgroundResource(icons[0]);
-            //组装玩开始返回
-            return view;
-        }
+    public void initGoods(){
+        Goods goods1=new Goods("初级清洁工",R.drawable.head2,bag.getPrimaryCleaner());
+        goodsList.add(goods1);
+        Goods goods2=new Goods("中级清洁工",R.drawable.head2,bag.getIntermediateCleaner());
+        goodsList.add(goods2);
+        Goods goods3=new Goods("高级清洁工",R.drawable.head2,bag.getSeniorCleaner());
+        goodsList.add(goods3);
+        Goods goods4=new Goods("特级清洁工",R.drawable.head2,bag.getSuperCleaner());
+        goodsList.add(goods4);
+        Goods goods5=new Goods("鱼",R.drawable.head2,bag.getFish());
+        goodsList.add(goods5);
+        Goods goods6=new Goods("睡莲",R.drawable.head2,bag.getWaterLilies());
+        goodsList.add(goods6);
+        Goods goods7=new Goods("水量",R.drawable.head2,bag.getWaterNum());
+        goodsList.add(goods7);
     }
 }

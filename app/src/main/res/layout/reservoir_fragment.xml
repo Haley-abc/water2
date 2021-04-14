@@ -94,6 +94,7 @@
                     android:layout_marginLeft="20dp"
                     android:gravity="center">
                     <Button
+                        android:id="@+id/bt_friend"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@mipmap/friend" />

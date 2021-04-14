@@ -44,6 +44,26 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+        List<Questions> questionsList=DataSupport.findAll(Questions.class);
+        if(questionsList.size()==0){
+            Questions questions1=new Questions();
+            questions1.setTopic("我国将每年的（）定为中国水周。");
+            questions1.setAnswer("3月22-28日");
+            questions1.setOption1("3月22-28日");
+            questions1.setOption2("4月22-28日");
+            questions1.setOption3("5月22-28日");
+            questions1.setOption4("7月22-28日");
+            questions1.save();
+            Questions questions2=new Questions();
+            questions2.setTopic("人类可利用的淡水资源主要是指某地区逐年可恢复和（）的淡水资源。");
+            questions2.setAnswer("更新");
+            questions2.setOption1("更新");
+            questions2.setOption2("开采");
+            questions2.setOption3("储存");
+            questions2.setOption4("消耗");
+            questions2.save();
+        }
+
         id=(int) MySharedPreferences.getId(QuestionActivity.this);
         user= DataSupport.find(User.class,id,true);
         game=user.getGame();

@@ -1,5 +1,6 @@
 package com.example.water11.data;
 
+import com.example.water11.data.reservoir.Bag;
 import com.example.water11.data.reservoir.Game;
 
 import org.litepal.crud.DataSupport;
@@ -19,11 +20,19 @@ public class User extends DataSupport {
     private int reservoirDays;//水库经验增加天数
     private String reservoirDate;//水库经验增加日期
     private String refreshDate;//水库刷新日期
-    private List<Bag> bags=new ArrayList<Bag>();//水库背包物品
     private int polutionNum;//污染物个数
     private int fishNum;//鱼个数
     private int kitNum;//工具箱个数
     private Game game;
+    private Bag bag;
+
+    public Bag getBag() {
+        return bag;
+    }
+
+    public void setBag(Bag bag) {
+        this.bag = bag;
+    }
 
     public Game getGame() {
         return game;
@@ -63,14 +72,6 @@ public class User extends DataSupport {
 
     public void setRefreshDate(String refreshDate) {
         this.refreshDate = refreshDate;
-    }
-
-    public List<Bag> getBags() {
-        return bags;
-    }
-
-    public void setBags(List<Bag> bags) {
-        this.bags = bags;
     }
 
     public String getReservoirDate() {
