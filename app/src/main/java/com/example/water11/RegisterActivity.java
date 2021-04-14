@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.water11.data.reservoir.Bag;
 import com.example.water11.data.reservoir.Game;
 import com.example.water11.data.User;
 import com.example.water11.tool.BaseActivity;
@@ -66,6 +67,8 @@ public class RegisterActivity extends BaseActivity {
                         if (password.equals(password2)) {
                             Game game=new Game();
                             game.save();
+                            Bag bag=new Bag();
+                            bag.save();
 
                             SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
                             Date date = new Date(System.currentTimeMillis());
@@ -94,6 +97,7 @@ public class RegisterActivity extends BaseActivity {
                             user.setPassword(password);
                             user.setAccount(account);
                             user.setGame(game);
+                            user.setBag(bag);
                             user.save();
                             if(user.save()) {
                                 showDialog();

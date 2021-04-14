@@ -17,6 +17,8 @@ import com.example.water11.R;
 import com.example.water11.data.reservoir.Game;
 import com.example.water11.data.reservoir.Questions;
 import com.example.water11.data.User;
+import com.example.water11.ui.notifications.FriendActivity;
+
 import org.litepal.crud.DataSupport;
 
 import java.text.SimpleDateFormat;
@@ -51,15 +53,24 @@ public class ReservoirFragment extends Fragment {
         tvLevel=root.findViewById(R.id.tv_level);
         tvLevel.setText(WaterNum.getLevel(water)+"");
 
-        final Button btShop=root.findViewById(R.id.bt_shop);
-        final Button btBag=root.findViewById(R.id.bt_bag);
-        final Button btQuestion=root.findViewById(R.id.bt_question);
+        Button btShop=root.findViewById(R.id.bt_shop);
+        Button btBag=root.findViewById(R.id.bt_bag);
+        Button btQuestion=root.findViewById(R.id.bt_question);
+        Button btFriend=root.findViewById(R.id.bt_friend);
+
         btShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), ShopActivity.class);
                 startActivity(intent);
         }
+        });
+        btFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), FriendActivity.class);
+                startActivity(intent);
+            }
         });
         btBag.setOnClickListener(new View.OnClickListener() {
             @Override
