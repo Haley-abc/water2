@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -111,7 +112,8 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
         dialog.show();
     }
 
-    public void confirmPurchase(View v, final double price, final String commodityName){
+    public void confirmPurchase(final View v, final double price, final String commodityName){
+        final View view=v;
         AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
         builder.setTitle("提示");
         builder.setMessage("确认购买？");
@@ -125,6 +127,8 @@ public class CommodityAdapter extends RecyclerView.Adapter<CommodityAdapter.View
                         values.put("coinNum",coinNum);
                         DataSupport.update(Game.class,values,gameId);
                         addNum(commodityName);
+
+                        Toast.makeText(view.getContext(), "购买成功", Toast.LENGTH_SHORT).show();
                     }
                 });
         builder.setNegativeButton("取消",

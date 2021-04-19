@@ -50,19 +50,19 @@ public class BagActivity extends BaseActivity {
     }
 
     public void initGoods(){
-        Goods goods1=new Goods("初级清洁工",R.drawable.head2,bag.getPrimaryCleaner());
+        Goods goods1=new Goods("初级清洁工",R.drawable.primary_cleaner,bag.getPrimaryCleaner());
         goodsList.add(goods1);
-        Goods goods2=new Goods("中级清洁工",R.drawable.head2,bag.getIntermediateCleaner());
+        Goods goods2=new Goods("中级清洁工",R.drawable.intermediate_cleaner,bag.getIntermediateCleaner());
         goodsList.add(goods2);
-        Goods goods3=new Goods("高级清洁工",R.drawable.head2,bag.getSeniorCleaner());
+        Goods goods3=new Goods("高级清洁工",R.drawable.senior_cleaner,bag.getSeniorCleaner());
         goodsList.add(goods3);
-        Goods goods4=new Goods("特级清洁工",R.drawable.head2,bag.getSuperCleaner());
+        Goods goods4=new Goods("特级清洁工",R.drawable.super_cleaner,bag.getSuperCleaner());
         goodsList.add(goods4);
-        Goods goods5=new Goods("鱼",R.drawable.head2,bag.getFish());
+        Goods goods5=new Goods("鱼",R.drawable.fish,bag.getFish());
         goodsList.add(goods5);
-        Goods goods6=new Goods("睡莲",R.drawable.head2,bag.getWaterLilies());
+        Goods goods6=new Goods("睡莲",R.drawable.water_lilies,bag.getWaterLilies());
         goodsList.add(goods6);
-        Goods goods7=new Goods("水量",R.drawable.head2,bag.getWaterNum());
+        Goods goods7=new Goods("水量",R.drawable.water_num,bag.getWaterNum());
         goodsList.add(goods7);
     }
 }

@@ -1,19 +1,15 @@
 package com.example.water11.data.service;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.water11.R;
-import com.example.water11.ui.Service.activity.OnlineActivity;
-import com.example.water11.ui.Service.activity.WebActivity;
+import com.example.water11.ui.Service.activity.OnlineOptionActivity;
 
 import java.util.List;
 
@@ -32,7 +28,7 @@ public class OnlineAdapter extends RecyclerView.Adapter<OnlineAdapter.ViewHolder
         holder.onlineView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(v.getContext(), WebActivity.class);
+                Intent intent=new Intent(v.getContext(), OnlineOptionActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 v.getContext().startActivity(intent);
             }

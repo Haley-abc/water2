@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Service.activity.OnlineOptionActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="中国水周"
+        android:gravity="center"
+        android:layout_height="50dp"
+        android:textSize="30dp"
+        android:background="#6ABBD9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <Button
+            android:id="@+id/bt_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="知识竞赛报名"
+            android:background="#c2dcf5"/>
+
+        <Button
+            android:id="@+id/bt_walk_into"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="走进中国水周"
+            android:background="#c2dcf5"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+</LinearLayout>
