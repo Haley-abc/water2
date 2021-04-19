@@ -5,17 +5,17 @@ import com.example.water11.data.User;
 import org.litepal.crud.DataSupport;
 
 public class Game extends DataSupport {
-        private int id;//水库id
-        private User user;//和user表关联
-        private int waterQuantity;//水量
-        private int coinNum;//金币数
-        private int fishNum;//水生生物数量
-        private int kitNum;//工具数量
-        private int polutionNum;//污染物数量
-        private int days;//累计签到日期
-        private String date;//上次签到日期
-        private String answerDate;//上次答题日期
-
+    private int id;//水库id
+    private User user;//和user表关联
+    private int waterQuantity;//水量
+    private int coinNum;//金币数
+    private int fishNum;//水生生物数量
+    private int kitNum;//工具数量
+    private int polutionNum;//污染物数量
+    private int days;//累计签到日期
+    private String date;//上次签到日期
+    private String answerDate;//上次答题日期
+    private int harm;//水库伤害值
 
     public Game(){
         waterQuantity=0;

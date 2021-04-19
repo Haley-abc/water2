@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
 import com.example.water11.R;
 import com.example.water11.data.service.Online;
 import com.example.water11.data.service.OnlineAdapter;
@@ -36,4 +37,5 @@ public class OnlineActivity extends AppCompatActivity {
         Online online=new Online("中国水周","省水科院开展“世界水日”“中国水周”宣传进校园活动");
         onlineList.add(online);
     }
+
 }

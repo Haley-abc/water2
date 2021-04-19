@@ -51,19 +51,19 @@ public class ShopActivity extends BaseActivity {
     }
 
     public void initCommodity(){
-        Commodity commodity1=new Commodity("初级清洁工",40.0,R.drawable.head2,"清理效果：伤害-40");
+        Commodity commodity1=new Commodity("初级清洁工",40.0,R.drawable.primary_cleaner,"清理效果：伤害-40");
         commodityList.add(commodity1);
-        Commodity commodity2=new Commodity("中级清洁工",70.0,R.drawable.head2,"清理效果：伤害-70");
+        Commodity commodity2=new Commodity("中级清洁工",70.0,R.drawable.intermediate_cleaner,"清理效果：伤害-70");
         commodityList.add(commodity2);
-        Commodity commodity3=new Commodity("高级清洁工",100.0,R.drawable.head2,"清理效果：伤害-100");
+        Commodity commodity3=new Commodity("高级清洁工",100.0,R.drawable.senior_cleaner,"清理效果：伤害-100");
         commodityList.add(commodity3);
-        Commodity commodity4=new Commodity("特级清洁工",200.0,R.drawable.head2,"清理效果：伤害-200");
+        Commodity commodity4=new Commodity("特级清洁工",200.0,R.drawable.super_cleaner,"清理效果：伤害-200");
         commodityList.add(commodity4);
-        Commodity commodity5=new Commodity("鱼",2.0,R.drawable.head2,"");
+        Commodity commodity5=new Commodity("鱼",2.0,R.drawable.fish,"");
         commodityList.add(commodity5);
-        Commodity commodity6=new Commodity("睡莲",2.0,R.drawable.head2,"");
+        Commodity commodity6=new Commodity("睡莲",2.0,R.drawable.water_lilies,"");
         commodityList.add(commodity6);
-        Commodity commodity7=new Commodity("水量",20.0,R.drawable.head2,"100m³");
+        Commodity commodity7=new Commodity("水量",20.0,R.drawable.water_num,"100m³");
         commodityList.add(commodity7);
     }
 }

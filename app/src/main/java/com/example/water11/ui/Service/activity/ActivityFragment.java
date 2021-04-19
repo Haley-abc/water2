@@ -21,6 +21,7 @@ public class ActivityFragment extends Fragment {
     private ActivityViewModel mViewModel;
     private View root;
     private Button btOnline;
+    private Button btUnderline;
 
     public static ActivityFragment newInstance() {
         return new ActivityFragment();
@@ -32,10 +33,20 @@ public class ActivityFragment extends Fragment {
         root=inflater.inflate(R.layout.activity_fragment, container, false);
 
         btOnline=root.findViewById(R.id.bt_online);
+        btUnderline=root.findViewById(R.id.bt_underline);
+
         btOnline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), OnlineActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btUnderline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), UnderlineActivity.class);
                 startActivity(intent);
             }
         });

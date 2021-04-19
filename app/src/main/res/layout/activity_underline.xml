@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="线下活动"
+        android:gravity="center"
+        android:layout_height="50dp"
+        android:textSize="30dp"
+        android:background="#6ABBD9"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <Button
+            android:id="@+id/bt_volunteer_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="志愿服务"
+            android:background="#c2dcf5"/>
+
+        <Button
+            android:id="@+id/bt_theme_practice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="主题实践"
+            android:background="#c2dcf5"
+            android:layout_marginTop="30dp"/>
+        <Button
+            android:id="@+id/bt_fun_activities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="趣味活动"
+            android:background="#c2dcf5"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -13,6 +13,7 @@ import com.example.water11.tool.ActivityCollector;
 import com.example.water11.tool.BaseActivity;
 import com.example.water11.tool.MySharedPreferences;
 import com.example.water11.ui.Reservoir.ReservoirFragment;
+import com.example.water11.ui.SettingActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.navigation.NavController;
@@ -103,8 +104,11 @@ public class MainActivity extends BaseActivity {
                 //Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
                switch (item.getItemId()){
                    case R.id.back_to_login:
-                       Intent intent=new Intent(MainActivity.this,LoginActivity.class);
-                       startActivity(intent);
+                       Intent intent1=new Intent(MainActivity.this,LoginActivity.class);
+                       startActivity(intent1);
+                   case R.id.setting:
+                       Intent intent2=new Intent(MainActivity.this, SettingActivity.class);
+                       startActivity(intent2);
                }
                 return false;
             }

@@ -120,7 +120,7 @@ public class QuestionActivity extends AppCompatActivity {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setTitle("提示");
         if(isRight){
-            builder.setMessage("回答正确，金币+50");
+            builder.setMessage("回答正确，金币+20");
             ContentValues values2=new ContentValues();
             int coinNum=game.getCoinNum()+20;
             values.put("coinNum",coinNum);

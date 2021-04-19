@@ -42,22 +42,11 @@ public class IssueFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         root=inflater.inflate(R.layout.fragment_issue, container, false);
 
-        picture=(ImageView)root.findViewById(R.id.iv_picture);
         etContent=(EditText)root.findViewById(R.id.et_content);
-        btTake=(Button)root.findViewById(R.id.take_photo);
         btIssue=(Button)root.findViewById(R.id.bt_issue);
 
         id=(int) MySharedPreferences.getId(root.getContext());
         final User user= DataSupport.find(User.class,id);
-
-        btTake.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, null);
-                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                startActivityForResult(intent, 2);
-            }
-        });
 
         btIssue.setOnClickListener(new View.OnClickListener() {
             @Override
