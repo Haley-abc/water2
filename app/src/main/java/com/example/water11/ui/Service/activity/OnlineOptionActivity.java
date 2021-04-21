@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.water11.R;
+import com.example.water11.ui.WebActivity;
 
 public class OnlineOptionActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class OnlineOptionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(OnlineOptionActivity.this, WebActivity.class);
+                intent.putExtra("address","https://baijiahao.baidu.com/s?id=1696462447333890490&wfr=spider&for=pc");
                 startActivity(intent);
             }
         });

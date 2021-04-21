@@ -27,7 +27,7 @@
         <activity android:name=".ui.SettingActivity" />
         <activity android:name=".ui.Service.activity.UnderlineActivity" />
         <activity android:name=".ui.Service.activity.OnlineOptionActivity" />
-        <activity android:name=".ui.Service.activity.WebActivity" />
+        <activity android:name=".ui.WebActivity" />
         <activity android:name=".ui.Service.activity.OnlineActivity" />
         <activity android:name=".ui.Reservoir.QuestionActivity" />
         <activity android:name=".ui.notifications.FriendActivity" />

@@ -96,6 +96,7 @@ public class RegisterActivity extends BaseActivity {
                             user.setNickName(nickName);
                             user.setPassword(password);
                             user.setAccount(account);
+                            user.setWaterSaving(0);
                             user.setGame(game);
                             user.setBag(bag);
                             user.save();

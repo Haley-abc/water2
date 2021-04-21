@@ -1,8 +1,10 @@
-package com.example.water11.ui.Service.activity;
+package com.example.water11.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.water11.R;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -11,13 +13,16 @@ public class WebActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent=getIntent();
+        String address=intent.getStringExtra("address");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
 
         WebView webView=(WebView)findViewById(R.id.wv_activity);
         webView.getSettings().setGeolocationEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://baijiahao.baidu.com/s?id=1696462447333890490&wfr=spider&for=pc");
+        webView.loadUrl(address);
 
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
