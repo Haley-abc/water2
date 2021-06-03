@@ -27,6 +27,7 @@
             android:textSize="25sp"
             android:layout_marginLeft="30dp" />
     </LinearLayout>
+    <!--
     <LinearLayout
         android:id="@+id/ll_editing_materials"
         android:layout_width="match_parent"
@@ -54,8 +55,9 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/arrow"/>
     </LinearLayout>
+-->
     <LinearLayout
-        android:id="@+id/ll_warranty_service"
+        android:id="@+id/ll_repair_service"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#c7dee5"
@@ -70,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="保修服务"
+            android:text="报修服务"
             android:gravity="center"
             android:textSize="20sp"
             android:layout_weight="1"

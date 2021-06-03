@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.water11.R;
 import com.example.water11.data.reservoir.Questions;
 import com.example.water11.ui.home.individual.IndividualFragment;
+import com.example.water11.ui.home.task.TaskFragment;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
@@ -56,12 +57,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 btTask.setBackgroundColor(Color.rgb(50,131,160));
                 break;
             case R.id.bt_task://我的任务按钮
-                /*replaceFragment(new TaskFragment());
+                replaceFragment(new TaskFragment());
                 btCurrent.setBackgroundColor(Color.rgb(50,131,160));
-                btTask.setBackgroundColor(Color.WHITE);*/
-                Intent intent = new Intent(Intent.ACTION_VIEW);
+                btTask.setBackgroundColor(Color.WHITE);
+                /*Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("http://www.baidu.com"));
-                startActivity(intent);
+                startActivity(intent);*/
                 break;
             default:
                 break;

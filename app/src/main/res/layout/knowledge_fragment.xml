@@ -14,9 +14,8 @@
         android:layout_gravity="center"
         android:hint="Search                                   🔍"
         android:inputType="text"/>
-    <ListView
-        android:id="@+id/list_know"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/knowledge_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

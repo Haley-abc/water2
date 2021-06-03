@@ -23,8 +23,26 @@ public class User extends DataSupport {
     private int polutionNum;//污染物个数
     private int fishNum;//鱼个数
     private int kitNum;//工具箱个数
+    private int waterSaving;//节水量
     private Game game;
     private Bag bag;
+    private Friends friends;
+
+    public Friends getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Friends friends) {
+        this.friends = friends;
+    }
+
+    public int getWaterSaving() {
+        return waterSaving;
+    }
+
+    public void setWaterSaving(int waterSaving) {
+        this.waterSaving = waterSaving;
+    }
 
     public Bag getBag() {
         return bag;
