@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <ImageView
+    <com.example.water11.view.CircleHead
         android:id="@+id/iv_sort_head"
         android:layout_width="50dp"
         android:layout_height="50dp"

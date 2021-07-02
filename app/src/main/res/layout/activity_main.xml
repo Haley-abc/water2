@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginLeft="20dp">
-            <ImageView
+            <com.example.water11.view.CircleHead
                 android:id="@+id/iv_head"
                 android:src="@drawable/head"
                 android:layout_width="45dp"
